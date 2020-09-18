@@ -40,13 +40,23 @@ def random_list(start, stop, length):
     return random_list
 
 
-def aucPerformance(scores, labels, logfile=None):
+def aucPerformance(scores, labels, logfile=None, criterion=None):
     roc_auc = roc_auc_score(labels, scores)
 #    print(roc_auc)
     ap = average_precision_score(labels, scores)
-    print("AUC-ROC: %.4f, AUC-PR: %.4f" % (roc_auc, ap))
-    if logfile:
-        logfile.write("AUC-ROC: %.4f, AUC-PR: %.4f\n" % (roc_auc, ap))
+    start_time = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+    if criterion is None:
+        print(start_time)
+        print("AUC-ROC: %.4f, AUC-PR: %.4f" % (roc_auc, ap))
+        if logfile:
+            logfile.write(start_time)
+            logfile.write("AUC-ROC: %.4f, AUC-PR: %.4f\n" % (roc_auc, ap))
+    else:
+        print(start_time)
+        print(criterion + ": AUC-ROC: %.4f, AUC-PR: %.4f" % (roc_auc, ap))
+        if logfile:
+            logfile.write(start_time)
+            logfile.write(criterion + ": AUC-ROC: %.4f, AUC-PR: %.4f\n" % (roc_auc, ap))        
 
 #    plt.title('Receiver Operating Characteristic')
 #    plt.plot(fpr, tpr, label='AUC = %0.4f'% roc_auc)

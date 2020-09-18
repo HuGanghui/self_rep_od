@@ -16,6 +16,7 @@ def arg_parse(verbose=True):
 
     parser.add_argument('--data-path', dest='data_path', type=str, default="data/apascal.csv")
     parser.add_argument('--load-path', dest='load_path', type=str, default="save_model/")
+    parser.add_argument('--log-path', dest='log_path', type=str, default="test_logs/log.log")
     parser.add_argument('--method', dest='testing_method', type=str, default='last_layer',
                         choices=['last_layer', 'first_layer', 'level'])
     parser.add_argument('--out-c', dest='out_c', type=int, default=50)
@@ -125,8 +126,8 @@ def main():
     # clf = LocalOutlierFactor(novelty=True)
     # clf.fit(x)
     # scores = 1-clf.decision_function(x)
-
-    aucPerformance(scores, labels)
+    logfile = open(args.log_path, 'a')
+    aucPerformance(scores, labels, logfile, args.criterion)
 
 
 if __name__ == "__main__":

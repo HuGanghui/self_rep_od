@@ -31,8 +31,8 @@ def arg_parse(verbose=True):
     parser.add_argument('--dropout-r', dest='dropout_r', type=float, default=0.1)
     parser.add_argument('--random-size', dest='random_size', type=int,
                         default=10000)  # randomly choose 1024 size of data for training
-    parser.add_argument('--use-pairwise', dest='use_pairwise', action='store_true')
-    parser.add_argument('--use-momentum', dest='use_momentum', action='store_true')
+    parser.add_argument('--use-pairwise', dest='use_pairwise', action='store_true', default=False)
+    parser.add_argument('--use-momentum', dest='use_momentum', action='store_true', default=False)
     parser.add_argument('--criterion', dest='criterion', type=str, default='distance',
                         choices=['distance', 'lof', 'iforest'])
 
