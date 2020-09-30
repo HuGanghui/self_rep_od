@@ -3,7 +3,14 @@
 ## Introduction
 
 
-
+各个数据集的特征以及样本数量:
+peidan数据集: 42 10万+
+apascal: 64 1.2万+
+bank: 62  4.1万+
+lung: 3311 140+
+probe: 34 6.4万+
+secom: 590 1500+
+u2r: 33 6万+
 
 
 ## Experimental Results
