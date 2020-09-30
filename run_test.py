@@ -7,7 +7,7 @@ def fun1(command):
 if __name__ == '__main__':
     # 使用对应数据集的对应模型来测试不同的方法
     process_list = []
-    data_list = ["apascal", "bank-additional-full_normalised", "lung-1vs5", "probe", "secom"]
+    data_list = ["0th_ts_train", "apascal", "bank-additional-full_normalised", "lung-1vs5", "probe", "secom"]
 
     criterion_distance = "--criterion distance"
 
@@ -35,15 +35,15 @@ if __name__ == '__main__':
                     "--load-path save_model_{data}/both/ " \
                     "--log-path test_logs/{data}/both.log "
 
-    gpu_index = 1
-    data_index = 3
-    # fun1(docker_command_neither.format(GPU=gpu_index, data=data_list[data_index]) + criterion_distance)
-    # # fun1(docker_command_neither.format(GPU=gpu_index, data=data_list[1]) + criterion_lof)
-    # fun1(docker_command_neither.format(GPU=gpu_index, data=data_list[data_index]) + criterion_iforest)
+    gpu_index = 6
+    data_index = 0
+    fun1(docker_command_neither.format(GPU=gpu_index, data=data_list[data_index]) + criterion_distance)
+    # fun1(docker_command_neither.format(GPU=gpu_index, data=data_list[1]) + criterion_lof)
+    fun1(docker_command_neither.format(GPU=gpu_index, data=data_list[data_index]) + criterion_iforest)
     
-    # fun1(docker_command_momentum.format(GPU=gpu_index, data=data_list[data_index]) + criterion_distance)
-    # # fun1(docker_command_momentum.format(GPU=gpu_index, data=data_list[1]) + criterion_lof)
-    # fun1(docker_command_momentum.format(GPU=gpu_index, data=data_list[data_index]) + criterion_iforest)
+    fun1(docker_command_momentum.format(GPU=gpu_index, data=data_list[data_index]) + criterion_distance)
+    # fun1(docker_command_momentum.format(GPU=gpu_index, data=data_list[1]) + criterion_lof)
+    fun1(docker_command_momentum.format(GPU=gpu_index, data=data_list[data_index]) + criterion_iforest)
 
     fun1(docker_command_both.format(GPU=gpu_index, data=data_list[data_index]) + criterion_distance)
     # fun1(docker_command_both.format(GPU=gpu_index, data=data_list[1]) + criterion_lof)
