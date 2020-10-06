@@ -102,7 +102,7 @@ def main():
         print("tree id:", i, "tic time.")
         tic_time()
 
-        x_level, first_level_scores = forest[i].testing_process(
+        x_level, level_scores = forest[i].testing_process(
             x=x,
             out_c=args.out_c,
             USE_GPU=USE_GPU,
@@ -116,7 +116,7 @@ def main():
         if args.testing_method == 'level':
             sum_result += x_level
         else:
-            sum_result += first_level_scores
+            sum_result += level_scores
 
         print("tree id:", i, "tic time.")
         tic_time()
