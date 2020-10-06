@@ -2,15 +2,17 @@
 
 ## Introduction
 
-
 各个数据集的特征以及样本数量:
-peidan数据集: 42 10万+
-apascal: 64 1.2万+
-bank: 62  4.1万+
-lung: 3311 140+
-probe: 34 6.4万+
-secom: 590 1500+
-u2r: 33 6万+
+
+| 数据集  | 特征数量 | 样本数量 |
+| ------- | -------- | -------- |
+| 裴丹    | 42       | 10万+    |
+| apascal | 64       | 1.2万+   |
+| bank    | 62       | 4.1万+   |
+| lung    | 3311     | 140+     |
+| probe   | 34       | 6.4万+   |
+| secom   | 590      | 1500+    |
+| U2r     | 33       | 6万+     |
 
 
 ## Experimental Results
@@ -26,29 +28,7 @@ model
 | LOF                      | /    | AUROC: 0.5193<br/>AUPR: 0.0133 | AUROC: 0.5039<br/> AUPR: 0.0130 | AUC-ROC: 0.5384<br/> AUC-PR: 0.0138 | AUC-ROC: 0.5281<br/>AUC-PR: 0.0136 |
 | Isolation Forest         | /    | AUROC: 0.6341<br/>AUPR: 0.0254 | AUROC: 0.6745<br/>AUPR: 0.0343  | AUC-ROC: 0.7919<br/>AUC-PR: 0.0425  | AUC-ROC: 0.8011<br/>AUC-PR: 0.0470 |
 
-### Secom
-
-
-
-| Criterion / Improvements | Ori                | Neither                         | Pairwise Loss      | Momentum Updating | Both              |
-| ------------------------ | ------------------ | ------------------------------- | ------------------ | ----------------- | ----------------- |
-| Sample Distance          | /                  | AUROC: 0.5450<br />AUPR: 0.0933 | AUROC:<br />AUPR:  | AUROC:<br />AUPR: | AUROC:<br />AUPR: |
-| LOF                      | AUROC: <br />AUPR: | AUROC:<br />AUPR:               | AUROC:<br />AUPR:  | AUROC:<br />AUPR: | AUROC:<br />AUPR: |
-| Isolation Forest         | AUROC: <br />AUPR: | AUROC: <br />AUPR:              | AUROC: <br />AUPR: | AUROC:<br />AUPR: | AUROC:<br />AUPR: |
-
-### Lung
-
-
-
-| Criterion / Improvements | Ori                | Neither                         | Pairwise Loss      | Momentum Updating | Both              |
-| ------------------------ | ------------------ | ------------------------------- | ------------------ | ----------------- | ----------------- |
-| Sample Distance          | /                  | AUROC: 0.8621<br />AUPR: 0.4672 | AUROC:<br />AUPR:  | AUROC:<br />AUPR: | AUROC:<br />AUPR: |
-| LOF                      | AUROC: <br />AUPR: | AUROC:<br />AUPR:               | AUROC:<br />AUPR:  | AUROC:<br />AUPR: | AUROC:<br />AUPR: |
-| Isolation Forest         | AUROC: <br />AUPR: | AUROC: <br />AUPR:              | AUROC: <br />AUPR: | AUROC:<br />AUPR: | AUROC:<br />AUPR: |
-
 ### Bank
-
-
 
 | Criterion / Improvements | Ori  | Neither                            | Pairwise Loss | Momentum Updating                  | Both                                |
 | ------------------------ | ---- | ---------------------------------- | ------------- | ---------------------------------- | ----------------------------------- |
@@ -57,8 +37,6 @@ model
 | Isolation Forest         | /    | AUC-ROC: 0.6892<br/>AUC-PR: 0.2975 | /             | AUC-ROC: 0.7268<br/>AUC-PR: 0.3172 | AUC-ROC: 0.7301<br/>AUC-PR: 0.3295  |
 
 ### Probe
-
-
 
 | Criterion / Improvements | Ori  | Neither                            | Pairwise Loss | Momentum Updating                  | Both                               |
 | ------------------------ | ---- | ---------------------------------- | ------------- | ---------------------------------- | ---------------------------------- |
