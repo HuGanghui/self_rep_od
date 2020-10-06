@@ -91,12 +91,12 @@ class RDPTree():
                     #     logfile.write("epoch " + str(epoch) + " gap_loss: " + str(gap_loss) +
                     #                   " recon_loss: " + str(recon_loss) + '\n')
 
-                    print("tree_id:", self.t_id, "level:", level)
-                    print("keep_pos.size ==", keep_pos[0].size)
+                    # print("tree_id:", self.t_id, "level:", level)
+                    # print("keep_pos.size ==", keep_pos[0].size)
                     if logfile:
                         logfile.write("tree_id: " + str(self.t_id) + " level: " + str(level)
                                       + "keep_pos.size == " + str(keep_pos[0].size) + '\n')
-                    print("epoch ", epoch, "gap_loss:", gap_loss)
+                    # print("epoch ", epoch, "gap_loss:", gap_loss)
                     if logfile:
                         logfile.write("epoch " + str(epoch) + " gap_loss: " + str(gap_loss) + '\n')
                     model.save_model(save_path + 't' + str(self.t_id) + '_l' + str(level) + '_latest.h5')

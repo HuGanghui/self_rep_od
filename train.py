@@ -20,7 +20,7 @@ def arg_parse(verbose=True):
     parser.add_argument('--log-path', dest='log_path', type=str, default="logs/log.log")
     parser.add_argument('--node-batch', dest='node_batch', type=int, default=30)
     parser.add_argument('--node-epoch', dest='node_epoch', type=int, default=200)  # epoch for a node training
-    parser.add_argument('--eval-interval', dest='eval_interval', type=int, default=24)
+    parser.add_argument('--eval-interval', dest='eval_interval', type=int, default=96)
     parser.add_argument('--batch-size', dest='batch_size', type=int, default=192)
     parser.add_argument('--out-c', dest='out_c', type=int, default=50)
     parser.add_argument('--lr', dest='LR', type=float, default=1e-1)
