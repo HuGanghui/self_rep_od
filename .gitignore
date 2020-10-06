@@ -87,7 +87,7 @@ target/
 profile_default/
 ipython_config.py
 
-# pyenv
+# pyenv f
 .python-version
 
 # pipenv
@@ -132,9 +132,4 @@ dmypy.json
 
 # save_model files
 save_model/
-save_model_apascal/
-save_model_bank-additional-full_normalised/
-save_model_probe/
-save_model_secom/
-save_model_test/
-save_model_0th_ts_train/
+save_model_*/
