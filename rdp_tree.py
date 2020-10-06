@@ -146,7 +146,8 @@ class RDPTree():
                         dropout_r,
                         testing_method='last_layer',
                         svm_flag=False,
-                        criterion='distance'
+                        criterion='distance',
+                        use_pairwise=False
                         ):
 
         if svm_flag:
@@ -171,7 +172,7 @@ class RDPTree():
                 model.load_model(load_path + 't' + str(self.t_id) + '_l' + str(level) + '_latest.h5')
 
             # eval
-            scores = model.eval_model(x, criterion=criterion)
+            scores = model.eval_model(x, criterion=criterion, use_pairwise=use_pairwise)
 
             if level == 1:
                 first_level_scores = scores

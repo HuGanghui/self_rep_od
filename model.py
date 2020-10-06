@@ -260,7 +260,7 @@ class RDP_Model:
 
         return gap_loss.data.cpu().numpy()
 
-    def eval_model(self, x, criterion='distance'):
+    def eval_model(self, x, criterion='distance', use_pairwise=False):
         self.r_net.eval()
         x_random = copy.deepcopy(x)
         np.random.shuffle(x_random)
@@ -281,10 +281,13 @@ class RDP_Model:
             r_target_random = self.r_target_net(x_random).detach()
             r_pred_random = self.r_net(x_random)
 
-            xy = F.normalize(r_target, p=1, dim=1) * F.normalize(r_target_random, p=1, dim=1)
-            x_y_ = F.normalize(r_pred, p=1, dim=1) * F.normalize(r_pred_random, p=1, dim=1)
-            pair_wise_loss = torch.mean(F.mse_loss(xy, x_y_, reduction='none'), dim=1)
-            scores = gap_loss + pair_wise_loss
+            if use_pairwise is True:
+                xy = F.normalize(r_target, p=1, dim=1) * F.normalize(r_target_random, p=1, dim=1)
+                x_y_ = F.normalize(r_pred, p=1, dim=1) * F.normalize(r_pred_random, p=1, dim=1)
+                pair_wise_loss = torch.mean(F.mse_loss(xy, x_y_, reduction='none'), dim=1)
+                scores = gap_loss + pair_wise_loss
+            else:
+                scores = gap_loss
             return scores.data.cpu().numpy()
         elif criterion == 'lof':
             print('[INFO] Using criterion LOF...')

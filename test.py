@@ -23,6 +23,7 @@ def arg_parse(verbose=True):
     parser.add_argument('--tree-depth', dest='tree_depth', type=int, default=8)
     parser.add_argument('--forest-Tnum', dest='forest_Tnum', type=int, default=30)
     parser.add_argument('--dropout-r', dest='dropout_r', type=float, default=0.1)
+    parser.add_argument('--use-pairwise', dest='use_pairwise', action='store_true', default=False)
     parser.add_argument('--criterion', dest='criterion', type=str, default='distance',
                         choices=['distance', 'lof', 'iforest'])
 
@@ -110,7 +111,8 @@ def main():
             dropout_r=args.dropout_r,
             testing_method=args.testing_method,
             svm_flag=svm_flag,
-            criterion=args.criterion
+            criterion=args.criterion,
+            use_pairwise=args.use_pairwise
         )
 
         if args.testing_method == 'level':
