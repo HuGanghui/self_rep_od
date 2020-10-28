@@ -135,16 +135,18 @@ if __name__ == "__main__":
         if random_size > data_size:
             raise ValueError(f'`random_size` {args.random_size} exceeds data size {args.data_size}!')
 
-        random_pos = random_list(0, data_size-1, random_size)
+        # random_pos = random_list(0, data_size-1, random_size)
         # random sampling without replacement
         # random_pos = random.sample(range(0, data_size), random_size)
 
         # to form x and labels
-        x = x_ori[random_pos]
-        if svm_flag:
-            labels = labels_ori[random_pos]
-        else:
-            labels = labels_ori[random_pos].values
+        # x = x_ori[random_pos]
+        # if svm_flag:
+        #     labels = labels_ori[random_pos]
+        # else:
+        #     labels = labels_ori[random_pos].values
+        x = x_ori
+        labels = labels_ori
 
         print("tree id:", i, "tic time.")
         tic_time()
