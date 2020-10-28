@@ -27,7 +27,7 @@ def arg_parse(verbose=True):
     parser.add_argument('--out-c', dest='out_c', type=int, default=50)
     parser.add_argument('--lr', dest='LR', type=float, default=1e-1)
     parser.add_argument('--tree-depth', dest='tree_depth', type=int, default=8)
-    parser.add_argument('--forest-Tnum', dest='forest_Tnum', type=int, default=3)
+    parser.add_argument('--forest-Tnum', dest='forest_Tnum', type=int, default=1)
     parser.add_argument('--filter-ratio', dest='filter_ratio', type=float,
                         default=0.05)  # filter those with high anomaly scores
     parser.add_argument('--dropout-r', dest='dropout_r', type=float, default=0.1)
