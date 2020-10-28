@@ -11,7 +11,7 @@ import numpy as np
 from model import RDP_Model
 from util import random_list, aucPerformance
 
-is_batch_replace = True
+is_batch_replace = False
 is_eval = False
 test_1l_only = True
 
@@ -68,14 +68,14 @@ class RDPTree():
             for epoch in range(0, node_epoch):
                 if not is_batch_replace:
                     random.shuffle(batch_x)
-                    batch_cnt = 0
+                    # batch_cnt = 0
                     for batch_i in batch_x:
                         gap_loss = model.train_model(batch_i, epoch, use_pairwise=use_pairwise,
                                                      use_momentum=use_momentum)
                         # print("epoch ", epoch, "loss: ", loss)
-                        batch_cnt += 1
-                        if batch_cnt >= node_batch:
-                            break
+                        # batch_cnt += 1
+                        # if batch_cnt >= node_batch:
+                        #     break
 
                 else:
                     # random sampling with replacement
