@@ -146,7 +146,7 @@ if __name__ == "__main__":
         # else:
         #     labels = labels_ori[random_pos].values
         x = x_ori
-        labels = labels_ori
+        labels = labels_ori.values
 
         print("tree id:", i, "tic time.")
         tic_time()

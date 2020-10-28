@@ -17,6 +17,8 @@ if __name__ == '__main__':
 
     lr = "--lr 0.05"
 
+    epoch = "--node-epoch 600 "
+
     docker_command_neither = "CUDA_VISIBLE_DEVICES={GPU} python train.py " \
                      "--data-path data/{data}.csv " \
                      "--save-path save_model_{data}/neither/ " \
@@ -47,14 +49,18 @@ if __name__ == '__main__':
     docker_command_list = [docker_command_momentum, docker_command_neither,
                            docker_command_pairwise, docker_command_both]
 
-    data_index = 0
-    GPU_index = 1
+    data_index = 2
+    GPU_index = 0
     if data_list[data_index] == "0th_ts_train" or data_list[data_index][2:] == "th_ts_train" or data_list[data_index] == "probe":
         for i in range(len(docker_command_list)):
             docker_command_list[i] = docker_command_list[i] + out_c_30
     elif data_list[data_index] == "creditcard":
         for i in range(len(docker_command_list)):
             docker_command_list[i] = docker_command_list[i] + out_c_20
+
+    # 修改epoch
+    for i in range(len(docker_command_list)):
+            docker_command_list[i] = docker_command_list[i] + epoch
 
     for i in [0, 1, 2, 3]:
         p = Process(target=fun1, args=(docker_command_list[i].format(GPU=GPU_index, data=data_list[data_index]),))
