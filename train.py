@@ -10,6 +10,7 @@ import torch
 
 from rdp_tree import RDPTree
 from util import dataLoading, random_list, tic_time
+import datetime
 
 
 def arg_parse(verbose=True):
@@ -18,6 +19,7 @@ def arg_parse(verbose=True):
     parser.add_argument('--data-path', dest='data_path', type=str, default="data/apascal.csv")
     parser.add_argument('--save-path', dest='save_path', type=str, default="save_model/")
     parser.add_argument('--log-path', dest='log_path', type=str, default="logs/log.log")
+    parser.add_argument('--test-log-path', dest='test_log_path', type=str, default="test_logs/log.log")
     parser.add_argument('--node-batch', dest='node_batch', type=int, default=30)
     parser.add_argument('--node-epoch', dest='node_epoch', type=int, default=200)  # epoch for a node training
     parser.add_argument('--eval-interval', dest='eval_interval', type=int, default=96)
@@ -25,7 +27,7 @@ def arg_parse(verbose=True):
     parser.add_argument('--out-c', dest='out_c', type=int, default=50)
     parser.add_argument('--lr', dest='LR', type=float, default=1e-1)
     parser.add_argument('--tree-depth', dest='tree_depth', type=int, default=8)
-    parser.add_argument('--forest-Tnum', dest='forest_Tnum', type=int, default=30)
+    parser.add_argument('--forest-Tnum', dest='forest_Tnum', type=int, default=3)
     parser.add_argument('--filter-ratio', dest='filter_ratio', type=float,
                         default=0.05)  # filter those with high anomaly scores
     parser.add_argument('--dropout-r', dest='dropout_r', type=float, default=0.1)
@@ -38,6 +40,8 @@ def arg_parse(verbose=True):
 
     args_parsed = parser.parse_args()
 
+    test_logfile = open(args_parsed.test_log_path, 'a')
+
     if verbose:
         message = ''
         message += '-------------------------------- Args ------------------------------\n'
@@ -47,8 +51,11 @@ def arg_parse(verbose=True):
             if v != default:
                 comment = '\t[default: %s]' % str(default)
             message += '{:>35}: {:<30}{}\n'.format(str(k), str(v), comment)
-        message += '-------------------------------- End ----------------------------------'
-        print(message)
+        message += '-------------------------------- End ----------------------------------\n'
+        # print(message)
+        start_time = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '\n')
+        test_logfile.write(start_time)
+        test_logfile.write(message)
 
     return args_parsed
 

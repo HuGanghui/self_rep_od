@@ -101,7 +101,7 @@ class RDPTree():
                         logfile.write("epoch " + str(epoch) + " gap_loss: " + str(gap_loss) + '\n')
                     model.save_model(save_path + 't' + str(self.t_id) + '_l' + str(level) + '_latest.h5')
 
-                    scores = model.eval_model(x, criterion=criterion)
+                    scores = model.eval_model(x, criterion=criterion, use_pairwise=use_pairwise)
 
                     # eval
                     if is_eval:

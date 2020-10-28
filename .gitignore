@@ -133,3 +133,6 @@ dmypy.json
 # save_model files
 save_model/
 save_model_*/
+
+# terminal output
+output

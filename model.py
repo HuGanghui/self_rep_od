@@ -254,7 +254,7 @@ class RDP_Model:
         nn.utils.clip_grad_norm_(self.r_net.parameters(), MAX_GRAD_NORM)
         self.r_net_optim.step()
 
-        if use_momentum:
+        if use_momentum and epoch > 100:
             # print('[INFO] Calculating moving momentum...')
             self.moving_update()
 

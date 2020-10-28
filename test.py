@@ -21,7 +21,7 @@ def arg_parse(verbose=True):
                         choices=['last_layer', 'first_layer', 'level'])
     parser.add_argument('--out-c', dest='out_c', type=int, default=50)
     parser.add_argument('--tree-depth', dest='tree_depth', type=int, default=8)
-    parser.add_argument('--forest-Tnum', dest='forest_Tnum', type=int, default=30)
+    parser.add_argument('--forest-Tnum', dest='forest_Tnum', type=int, default=3)
     parser.add_argument('--dropout-r', dest='dropout_r', type=float, default=0.1)
     parser.add_argument('--use-pairwise', dest='use_pairwise', action='store_true', default=False)
     parser.add_argument('--criterion', dest='criterion', type=str, default='distance',
