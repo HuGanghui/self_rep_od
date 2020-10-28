@@ -12,7 +12,7 @@ from model import RDP_Model
 from util import random_list, aucPerformance
 
 is_batch_replace = False
-is_eval = False
+is_eval = True
 test_1l_only = True
 
 
@@ -111,10 +111,10 @@ class RDPTree():
                                 best_auc = roc_auc
                                 best_epoch = epoch
 
-                            print("Best AUC-ROC: %.4f" % best_auc)
+                            # print("Best AUC-ROC: %.4f" % best_auc)
                             if logfile:
                                 logfile.write("Best AUC-ROC: %.4f\n" % best_auc)
-                            print("Best Epoch %d\n" % best_epoch)
+                            # print("Best Epoch %d\n" % best_epoch)
                             if logfile:
                                 logfile.write("Best Epoch %d\n\n" % best_epoch)
                         except ValueError:
